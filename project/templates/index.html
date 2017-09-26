@@ -5,83 +5,85 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
         <script>
-    var dropBox;
- 
-    window.onload = function() {
-      dropBox = document.getElementById("dropBox");
-      dropBox.ondragenter = ignoreDrag;
-      dropBox.ondragover = ignoreDrag;
-      dropBox.ondrop = drop;
-    }
- 
-    function ignoreDrag(e) {
-      //因为我们在处理拖放，所以应该确保没有其他元素会取得这个事件
-      e.stopPropagation();
-      e.preventDefault();
-      
-    }
- 
-    function drop(e) {
-      //取消事件传播及默认行为
-      e.stopPropagation();
-      e.preventDefault();
-      
-      //取得拖进来的文件
-      var data = e.dataTransfer;
-      var files = data.files;
-      //将其传给真正的处理文件的函数
-      processFiles(files);
-    }
- 
-    function processFiles(files) {
-      var file = files[0];
-      var output = document.getElementById("fileOutput");
-      //创建FileReader
-      var reader = new FileReader();
-      //告诉它在准备好数据之后做什么
-      reader.onload = function (e) {
-        //使用图像URL来绘制dropBox的背景
-        dropBox.style.backgroundImage = "url('" + e.target.result + "')";
-      };
-      //读取图片
-      reader.readAsDataURL(file);
-    }
- 
-    function showFileInput() {
-      var fileInput = document.getElementById("fileInput");
-      fileInput.click();
-    }
-  </script>
-     <style>
-    #dropBox {
-      
-      width: 250px;
-      height: 250px;
-      border: 5px dashed gray;
-      border-radius: 8px;
-      background: lightyellow;
-      background-size: 100%;
-      background-repeat: no-repeat;
-      text-align: center;
-    }
-      
-    #dropBox div {
-      
-      color: light-black;
-      font-size: 25px;
-      font-family: Verdana, Arial, sans-serif;
-    }
- 
-    input {
-      margin: 1px;
-      
-    }
-  </style>
+            var dropBox;
+
+            window.onload = function() {
+              dropBox = document.getElementById("dropBox");
+              dropBox.ondragenter = ignoreDrag;
+              dropBox.ondragover = ignoreDrag;
+              dropBox.ondrop = drop;
+            }
+
+            function ignoreDrag(e) {
+              //因为我们在处理拖放，所以应该确保没有其他元素会取得这个事件
+              e.stopPropagation();
+              e.preventDefault();
+
+            }
+
+            function drop(e) {
+              //取消事件传播及默认行为
+              e.stopPropagation();
+              e.preventDefault();
+
+              //取得拖进来的文件
+              var data = e.dataTransfer;
+              var files = data.files;
+              //将其传给真正的处理文件的函数
+              processFiles(files);
+            }
+
+            function processFiles(files) {
+              var file = files[0];
+              var output = document.getElementById("fileOutput");
+              //创建FileReader
+              var reader = new FileReader();
+              //告诉它在准备好数据之后做什么
+              reader.onload = function (e) {
+                //使用图像URL来绘制dropBox的背景
+                dropBox.style.backgroundImage = "url('" + e.target.result + "')";
+              };
+              //读取图片
+              reader.readAsDataURL(file);
+            }
+
+            function showFileInput() {
+              var fileInput = document.getElementById("fileInput");
+              fileInput.click();
+            }
+        </script>
+        
+         <style>
+            #dropBox {
+
+              width: 250px;
+              height: 250px;
+              border: 5px dashed gray;
+              border-radius: 8px;
+              background: lightyellow;
+              background-size: 100%;
+              background-repeat: no-repeat;
+              text-align: center;
+            }
+
+            #dropBox div {
+
+              color: light-black;
+              font-size: 25px;
+              font-family: Verdana, Arial, sans-serif;
+            }
+
+            input {
+              margin: 1px;
+
+            }
+        </style>
+        
     </head>
     <body >
        
         <div class="container" >
-            <div class="jumbotron" style="height:375px;background-color:white">
+            <div class="jumbotron" style="height:375px;width:1140px;background-color:white">
                
                 <nav class="navbar navbar-default navbar-fixed-top" style="position:absolute;left:385px;width:1040px;background-color:white">
                   <div class="container" style="width:1015px;text-align:center;font-size:30px;position:absolute;left:65px"><div style="background-color:#FFD382;border-style: outset;"><b>京典行程</b></div>
@@ -154,11 +156,11 @@
     </div>
     
     <div style="position:absolute;left:910px;top:860px;">
-    <input style="width:100px;height:50px;" type="button" value="確定" onclick="if(confirm('您確定送出這張圖片嗎?')) return self.location.href='1.html';else return false;"/>
+    <input style="width:100px;height:50px;" type="button" value="確定" onclick="if(confirm('您確定送出這張圖片嗎?')) return self.location.href='/first';else return false;"/>
     
     </div>
     
-     <div class="container-fluid" style="position:absolute;left:235px;top:60px;">
+     <div class="container-fluid" style="position:absolute;left:155px;top:60px;">
       <div class="row">
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
           <ul class="nav nav-pills flex-column">
@@ -166,19 +168,22 @@
               　<a class="nav-link " href="#"><div style="width:168px;font-size:30px;"><b>首頁</b></div> </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;">機票資訊</div></a>
+              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;"><b>機票資訊</b></div></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;">飯店資訊</div></a>
+              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;"><b>飯店資訊</b></div></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;">專題花絮</div></a>
+              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;"><b>專題花絮</b></div></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;">關於我們</div></a>
+              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;"><b>旅遊札記</b></div></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;">問與答</div></a>
+              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;"><b>關於我們</b></div></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><div style="width:168px;font-size:30px;"><b>問與答</b></div></a>
             </li>
           </ul>
 

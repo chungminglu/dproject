@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from travel.views import index
+from travel.views import index,first,second,Testmap
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^$',index),
-    url(r'^testmap/$',index),
+    url(r'^index/$',index),
+    url(r'^first/$',first),
+    url(r'^second/$',second),
+    url(r'^testmap/$',Testmap),
+    url(r'^admin/', admin.site.urls),
 ]
